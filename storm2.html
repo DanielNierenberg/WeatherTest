@@ -3,11 +3,24 @@
 <body>
   <a href="https://www.spc.noaa.gov/products/outlook/day2otlk_1730.gif" target="_blank">
     <img 
-      src="https://images.weserv.nl/?output=png&url=www.spc.noaa.gov/products/outlook/day1otlk_1730.gif" 
+      id="outlook"
       alt="NOAA Day 1 Outlook"
       style="max-width:100%;height:auto;"
     >
   </a>
+
+  <script>
+    // Generate a daily cache-buster (YYYY-MM-DD)
+    const today = new Date().toISOString().split('T')[0];
+
+    // Build the URL dynamically so it changes each day
+    const weservUrl =
+      "https://images.weserv.nl/?output=png&url=www.spc.noaa.gov/products/outlook/day2otlk_1730.gif&cb=" +
+      today;
+
+    // Set the image source
+    document.getElementById("outlook").src = weservUrl;
+  </script>
 </body>
 </html>
 
